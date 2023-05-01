@@ -413,9 +413,11 @@ class Zwocamera(Instrument):
 
 def main():
     load_dotenv()
-    zwo_model_choice: str = utils.get_env_variable("ZWO_MODEL")
 
-    camera = Zwocamera(device=zwo_model_choice)
+    zwo_model_choice: str = utils.get_env_variable("ZWO_MODEL")
+    zwo_lib_path: str = utils.get_env_variable("ZWO_LIB_PATH")
+
+    camera = Zwocamera(zwo_lib_path, device=zwo_model_choice)
 
 
 if __name__ == "__main__":
